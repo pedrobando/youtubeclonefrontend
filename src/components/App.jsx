@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header/Header';
+import {Container} from 'react-bootstrap/';
 //import {Button, Card} from 'react-bootstrap/';
 import './App.css';
 
@@ -10,7 +11,9 @@ class App extends Component {
     }
     render() { 
         return ( 
-            <Header></Header>
+            <Container>
+                <Header></Header>
+            </Container>
          );
     }
 }

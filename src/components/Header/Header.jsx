@@ -1,14 +1,14 @@
 import './Header.css';
 import React from 'react';
-import logo from '../../assets/img/logo.png'
+import logo from '../../assets/img/logo.png';
 import {Container, Row, Col, Form, FormControl, Button} from 'react-bootstrap/';
 
 const Header = (props) => {
     return ( 
-        <Container>
+        
             <Row className="topBar">
-                <Col xs={2}><img alt="ReactTV Logo" src={logo}/></Col>
-                <Col xs={{ span: 5, offset: 5 }}>
+                <Col xs={12} md={2}><img alt="ReactTV Logo" className="img_logo" src={logo}/></Col>
+                <Col xs={12} md={{ span: 5, offset: 5 }}>
                     <Form className="d-flex">
                         <FormControl
                         type="search"
@@ -20,7 +20,7 @@ const Header = (props) => {
                     </Form>
                 </Col>
             </Row>
-        </Container>
+       
      );
 }
  
