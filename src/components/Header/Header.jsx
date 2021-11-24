@@ -1,7 +1,7 @@
 import './Header.css';
 import React from 'react';
 import logo from '../../assets/img/logo.png';
-import {Container, Row, Col, Form, FormControl, Button} from 'react-bootstrap/';
+import {Row, Col, Form, FormControl, Button} from 'react-bootstrap/';
 
 const Header = (props) => {
     return ( 

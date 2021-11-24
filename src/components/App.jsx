@@ -7,10 +7,10 @@ import apikey from "../API_KEY/APIKEY";
 import "./App.css";
 import axios from "axios";
 import RelatedVideos from "./RelatedVideos/RelatedVideos";
-import YoutubePlayer from "./YoutubePlayer/YoutubePlayer";
 
-const App = () => { 
-  const [video, setVideo] = useState(["w7ejDZ8SWv8"]);
+const App = () => {
+  const initialVideoId = { id: "w7ejDZ8SWv8" };
+  const [video, setVideo] = useState(initialVideoId);
   const [videos, setVideos] = useState([]);
 
   const getAllVideos = async () => {
@@ -23,16 +23,28 @@ const App = () => {
       });
   };
 
+  const getVideo = async () => {
+    await axios
+      .get(
+        `https://www.googleapis.com/youtube/v3/videos?key=${apikey}&id=${video.id}&part=snippet`
+      )
+      .then((res) => {
+        setVideo(res.data.items);
+      });
+  };
 
   useEffect(() => {
     getAllVideos();
   }, []);
 
+  useEffect(() => {
+    getVideo();
+  }, []);
+
   return (
     <Container>
       <Header></Header>
-      <Hero video={video}>
-      </Hero>
+      <Hero video={video}></Hero>
       <RelatedVideos videos={videos}></RelatedVideos>
     </Container>
   );

@@ -5,9 +5,9 @@ import "./RelatedVideos.css";
 const RelatedVideos = (props) => {
   const videos = props.videos;
   const videosListItems = videos.map(
-    (videos, index) =>
-      index < 3 && (
-        <div className="related_videos_list_item">
+    (videos, i) =>
+      i < 3 && (
+        <div className="related_videos_list_item" key={i}>
           <div className="videoThumnail">
             <a href="">
               <img
@@ -22,7 +22,7 @@ const RelatedVideos = (props) => {
         </div>
       )
   );
-  console.log(videosListItems);
+
   return (
     <Row className="related_videos">
       <Col xs={6} md={6}>
