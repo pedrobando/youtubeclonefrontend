@@ -1,0 +1,14 @@
+.related_videos_list_item{display: block;clear: both; padding-bottom: 1rem;}
+
+.videoThumnail{
+    float: left;
+    border: 1px #18C0D6 solid;
+}
+.videoThumnail{margin-right: 8px;}
+
+.related_videos_list_item h3{
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0;
+    padding-top: 7px;
+}
