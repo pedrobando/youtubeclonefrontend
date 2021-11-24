@@ -1,0 +1,3 @@
+.thumb{background-color: grey; border-radius: 50%; width: 20px; height: 20px; display: block; padding: 18px;float: left;}
+.comments_list{list-style-type: none;}
+.comments_list ul li p{padding-left: 8px;}

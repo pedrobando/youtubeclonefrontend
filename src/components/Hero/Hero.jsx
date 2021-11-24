@@ -5,6 +5,7 @@ import {
   Col,
 } from "react-bootstrap/";
 import YoutubePlayer from "../YoutubePlayer/YoutubePlayer";
+import Comments from "../Comments/Comments";
 
 const Hero = (props) => {
   const video = props.video;
@@ -15,6 +16,7 @@ const Hero = (props) => {
       </Col>
       <Col xs={6} md={6}>
          {/* <h3>{video.snippet.title}</h3> */}
+         <Comments></Comments>
       </Col>
     </Row>
   );

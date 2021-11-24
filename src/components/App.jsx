@@ -10,7 +10,8 @@ import RelatedVideos from "./RelatedVideos/RelatedVideos";
 
 const App = () => {
   const initialVideoId = { id: "w7ejDZ8SWv8" };
-  const [video, setVideo] = useState(initialVideoId);
+  const [videoId, setVideoId] = useState("w7ejDZ8SWv8");
+  const [video, setVideo] = useState({});
   const [videos, setVideos] = useState([]);
 
   const getAllVideos = async () => {
@@ -26,26 +27,24 @@ const App = () => {
   const getVideo = async () => {
     await axios
       .get(
-        `https://www.googleapis.com/youtube/v3/videos?key=${apikey}&id=${video.id}&part=snippet`
+        `https://www.googleapis.com/youtube/v3/videos?key=${apikey}&id=${videoId}&part=snippet`
       )
       .then((res) => {
-        setVideo(res.data.items);
+        setVideo(res.data.items[0]);
       });
   };
 
   useEffect(() => {
     getAllVideos();
-  }, []);
-
-  useEffect(() => {
     getVideo();
-  }, []);
+  }, [videoId]);
+
 
   return (
     <Container>
       <Header></Header>
       <Hero video={video}></Hero>
-      <RelatedVideos videos={videos}></RelatedVideos>
+      <RelatedVideos videos={videos} setVideoId={setVideoId}></RelatedVideos>
     </Container>
   );
 };

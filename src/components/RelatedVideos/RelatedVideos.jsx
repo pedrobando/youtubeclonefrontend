@@ -4,20 +4,21 @@ import "./RelatedVideos.css";
 
 const RelatedVideos = (props) => {
   const videos = props.videos;
+  const setVideoId = props.setVideoId();
   const videosListItems = videos.map(
-    (videos, i) =>
+    (video, i) =>
       i < 3 && (
         <div className="related_videos_list_item" key={i}>
           <div className="videoThumnail">
-            <a href="">
+            <a href="" onClick={() => setVideoId(video.id.videoId)}>
               <img
-                src={videos.snippet.thumbnails.default.url}
-                alt={videos.snippet.title}
+                src={video.snippet.thumbnails.default.url}
+                alt={video.snippet.title}
               />
             </a>
           </div>
-          <h3>{videos.snippet.title}</h3>
-          <span>{videos.snippet.channelTitle}</span>
+          <h3>{video.snippet.title}</h3>
+          <span>{video.snippet.channelTitle}</span>
           <br className="clear" />
         </div>
       )
