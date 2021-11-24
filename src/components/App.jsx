@@ -7,8 +7,10 @@ import apikey from "../API_KEY/APIKEY";
 import "./App.css";
 import axios from "axios";
 import RelatedVideos from "./RelatedVideos/RelatedVideos";
+import YoutubePlayer from "./YoutubePlayer/YoutubePlayer";
 
-const App = () => {
+const App = () => { 
+  const [video, setVideo] = useState(["w7ejDZ8SWv8"]);
   const [videos, setVideos] = useState([]);
 
   const getAllVideos = async () => {
@@ -21,6 +23,7 @@ const App = () => {
       });
   };
 
+
   useEffect(() => {
     getAllVideos();
   }, []);
@@ -28,7 +31,8 @@ const App = () => {
   return (
     <Container>
       <Header></Header>
-      <Hero videoId={apikey}></Hero>
+      <Hero video={video}>
+      </Hero>
       <RelatedVideos videos={videos}></RelatedVideos>
     </Container>
   );
