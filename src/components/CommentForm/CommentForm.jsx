@@ -6,7 +6,7 @@ const CommentForm = (props) => {
   return (
     <div className="addComment">
       <h5>Add Comment</h5>
-      <Form>
+      <Form onSubmit={() => props.newComment}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Control as="textarea" rows={3} className="addCommentTxt" />
         </Form.Group>

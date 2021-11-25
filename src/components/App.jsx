@@ -41,9 +41,9 @@ const App = () => {
     })
 };
 
-const newComments = async () => {
+const newComment = async () => {
     await axios.post(`http://localhost:5500/api/comment/`)
-    .then((res) => {});
+    .then((res) => console.log(res));
 
 };
 
@@ -60,7 +60,7 @@ const newComments = async () => {
   return (
     <Container>
       <Header></Header>
-      <Hero video={video} videoId={videoId} comments={comments} setVideoId={setVideoId} videos={videos}></Hero>
+      <Hero video={video} videoId={videoId} comments={comments} setVideoId={setVideoId} videos={videos} newComment={newComment}></Hero>
       
     </Container>
   );

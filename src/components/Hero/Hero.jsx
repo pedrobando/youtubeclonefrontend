@@ -1,5 +1,5 @@
 import "./Hero.css";
-import React from "react";
+import React, { useState, useEffect, setState } from "react";
 import {
   Row,
   Col,
@@ -20,7 +20,7 @@ const Hero = (props) => {
         <RelatedVideos videos={videos} setVideoId={setVideoId} videoId={videoId}></RelatedVideos>
       </Col>
       <Col xs={6} md={6}>
-         <Comments comments={props.comments} videoId={videoId}></Comments>
+         <Comments comments={props.comments} videoId={videoId} newComment={props.newComment}></Comments>
       </Col>
     </Row>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, setState } from "react";
 import { Row, Col } from "react-bootstrap/";
 import "./RelatedVideos.css";
 
@@ -11,7 +11,7 @@ const RelatedVideos = (props) => {
       i < 3 && (
         <div className="related_videos_list_item" key={i}>
           <div className="videoThumnail">
-            <a href="" onClick={() => setVideoId(prevVideoId => video.id)}>
+            <a href="" onClick={() => setVideoId("klklkl")}>
               <img
                 src={video.snippet.thumbnails.default.url}
                 alt={video.snippet.title}
