@@ -16,7 +16,7 @@ const App = () => {
   const getAllVideos = async () => {
     await axios
       .get(
-        `https://www.googleapis.com/youtube/v3/search?q=react+tutorial&key=${apikey}&part=snippet`
+        `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=${apikey}&part=snippet`
       )
       .then((res) => {
         setVideos(res.data.items);
