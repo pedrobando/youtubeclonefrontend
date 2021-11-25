@@ -4,7 +4,7 @@ import "./RelatedVideos.css";
 
 const RelatedVideos = (props) => {
   const videos = props.videos;
-  const setVideoId = props.setVideoId();
+  const setVideoId = props.setVideoId;
   const videosListItems = videos.map(
     (video, i) =>
       i < 3 && (

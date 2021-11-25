@@ -60,8 +60,8 @@ const newComments = async () => {
   return (
     <Container>
       <Header></Header>
-      <Hero video={video} videoId={videoId} comments={comments}></Hero>
-      <RelatedVideos videos={videos} setVideoId={setVideoId} videoId={videoId}></RelatedVideos>
+      <Hero video={video} videoId={videoId} comments={comments} setVideoId={setVideoId} videos={videos}></Hero>
+      
     </Container>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import CommentForm from "../CommentForm/CommentForm";
 import "./Comments.css";
 
 const Comments = (props) => {
@@ -13,9 +14,8 @@ const Comments = (props) => {
   return (
     <div className="comments_wrapper">
       <h4>Video Comments</h4>
-      <ul className="comment-list">
-        {commentListItems}
-      </ul>
+      <ul className="comment-list">{commentListItems}</ul>
+      <CommentForm videoId={props.videoId}></CommentForm>
     </div>
   );
 };
