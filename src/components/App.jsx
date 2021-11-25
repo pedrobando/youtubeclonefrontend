@@ -12,6 +12,7 @@ const App = () => {
   const [video, setVideo] = useState({});
   const [videos, setVideos] = useState([]);
   const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState({});
 
   const getAllVideos = async () => {
     await axios
@@ -41,9 +42,14 @@ const App = () => {
     })
 };
 
-const newComment = async () => {
-    await axios.post(`http://localhost:5500/api/comment/`)
-    .then((res) => console.log(res));
+const newComment = async (comment) => {
+    await axios.post(`http://localhost:5500/api/comments/`,
+    comment)
+    .then((res) => {
+      setComments(comment);
+      console.log(res.data)
+    });
+    comment.preventDefault();
 
 };
 
@@ -60,7 +66,7 @@ const newComment = async () => {
   return (
     <Container>
       <Header></Header>
-      <Hero video={video} videoId={videoId} comments={comments} setVideoId={setVideoId} videos={videos} newComment={newComment}></Hero>
+      <Hero video={video} videoId={videoId} comments={comments} setVideoId={setVideoId} videos={videos} newComment={newComment} comment={comment} setComment={setComment}></Hero>
     </Container>
   );
 };

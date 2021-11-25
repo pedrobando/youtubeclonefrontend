@@ -19,7 +19,7 @@ const Comments = (props) => {
     <div className="comments_wrapper">
       <h3 className="video-comments">Video Comments</h3>
       <ul className="comments-list">{commentListItems}</ul>
-      <CommentForm videoId={props.videoId} newComment={props.newComment}></CommentForm>
+      <CommentForm setComment={props.setComment} comment={props.comment} videoId={props.videoId} newComment={props.newComment}></CommentForm>
     </div>
   );
 };

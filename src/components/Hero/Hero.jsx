@@ -23,7 +23,7 @@ const Hero = (props) => {
         <div className="video-info">
        
         </div>
-         <Comments comments={props.comments} videoId={videoId} newComment={props.newComment}></Comments>
+         <Comments comment={props.comment} setComment={props.setComment} comments={props.comments} videoId={videoId} newComment={props.newComment}></Comments>
       </Col>
     </Row>
   );
