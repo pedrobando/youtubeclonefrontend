@@ -7,15 +7,17 @@ const Comments = (props) => {
   const commentListItems = comments.map((comment) => (
     <li key={comment._id}>
       <span className="thumb">&nbsp;</span>
-      <p>{comment.text}<br/>z<span className="likes">200</span></p>
+      <p>{comment.text}<br/><span className="likes">{comment.like} | {comment.dislike}</span></p>
      
       
       <br className="clear" />
+      {/* <ul><li><span className="thumbS">&nbsp;</span></li>
+      <li><span className="thumbS">&nbsp;</span></li></ul> */}
     </li>
   ));
   return (
     <div className="comments_wrapper">
-      <h4>Video Comments</h4>
+      <h3 className="video-comments">Video Comments</h3>
       <ul className="comments-list">{commentListItems}</ul>
       <CommentForm videoId={props.videoId} newComment={props.newComment}></CommentForm>
     </div>

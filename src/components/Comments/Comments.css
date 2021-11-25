@@ -1,6 +1,8 @@
 .thumb{background-color: grey; border-radius: 50%; width: 20px; height: 20px; display: block; padding: 18px;float: left;}
-.comments-list{padding-left: 0;}
+.thumbS{background-color: grey; border-radius: 50%; width: 5px; height: 5px; display: block; padding: 10px;float: left;}
+.comments-list{padding-left: 0;  overflow-y: scroll; height: 400px;}
 .comments-list, .comments-list li{list-style-type: none;}
 ul.comments-list>li>p{padding-left: 1rem;float: left;}
 ul.comments-list>li{border-bottom: 1px #262626 solid; margin-bottom: 5px; padding:1rem}
 .likes{color: #727272;}
+.video-comments{font-size: 1.3rem;}
