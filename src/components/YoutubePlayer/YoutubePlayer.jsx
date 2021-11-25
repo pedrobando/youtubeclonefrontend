@@ -2,7 +2,7 @@ import React from "react";
 import './YoutubePlayer.css';
 
 const YoutubePlayer = (props) => {
-  const id = props.video;
+  const id = props.videoId;
   return (
         <iframe
         id="ytplayer"

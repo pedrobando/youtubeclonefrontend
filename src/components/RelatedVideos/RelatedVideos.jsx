@@ -10,7 +10,7 @@ const RelatedVideos = (props) => {
       i < 3 && (
         <div className="related_videos_list_item" key={i}>
           <div className="videoThumnail">
-            <a href="" onClick={() => setVideoId(video.id.videoId)}>
+            <a href="" >
               <img
                 src={video.snippet.thumbnails.default.url}
                 alt={video.snippet.title}

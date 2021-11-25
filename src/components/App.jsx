@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, setState } from "react";
 import Header from "./Header/Header";
 import { Container } from "react-bootstrap/";
 import Hero from "./Hero/Hero";
-import apikey from "../API_KEY/APIKEY";
-//import {Button, Card} from 'react-bootstrap/';
+import apikey from "../API_KEY/APIKEY"; 
 import "./App.css";
 import axios from "axios";
 import RelatedVideos from "./RelatedVideos/RelatedVideos";
 
 const App = () => {
-  const initialVideoId = { id: "w7ejDZ8SWv8" };
-  const [videoId, setVideoId] = useState("w7ejDZ8SWv8");
+  const [videoId, setVideoId] = useState('w7ejDZ8SWv8');
   const [video, setVideo] = useState({});
   const [videos, setVideos] = useState([]);
+  const [comments, setComments] = useState([]);
 
   const getAllVideos = async () => {
     await axios
@@ -34,17 +33,35 @@ const App = () => {
       });
   };
 
+  // Comments
+  const getAllComments = async () => {
+    await axios.get(`http://localhost:5500/api/comments/`)
+    .then((res)=>{
+        setComments(res.data);
+    })
+};
+
+const newComments = async () => {
+    await axios.post(`http://localhost:5500/api/comment/`)
+    .then((res) => {});
+
+};
+
+
+  // end comments
+
   useEffect(() => {
     getAllVideos();
     getVideo();
+    getAllComments();
   }, [videoId]);
 
 
   return (
     <Container>
       <Header></Header>
-      <Hero video={video}></Hero>
-      <RelatedVideos videos={videos} setVideoId={setVideoId}></RelatedVideos>
+      <Hero video={video} videoId={videoId} comments={comments}></Hero>
+      <RelatedVideos videos={videos} setVideoId={setVideoId} videoId={videoId}></RelatedVideos>
     </Container>
   );
 };
