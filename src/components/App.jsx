@@ -35,7 +35,7 @@ const App = () => {
 
   // Comments
   const getAllComments = async () => {
-    await axios.get(`http://localhost:5500/api/comments/`)
+    await axios.get(`http://localhost:5500/api/comments/${videoId}`)
     .then((res)=>{
         setComments(res.data);
     })
@@ -54,14 +54,13 @@ const newComment = async () => {
     getAllVideos();
     getVideo();
     getAllComments();
-  }, [videoId]);
+  }, [videoId, video, videos]);
 
 
   return (
     <Container>
       <Header></Header>
       <Hero video={video} videoId={videoId} comments={comments} setVideoId={setVideoId} videos={videos} newComment={newComment}></Hero>
-      
     </Container>
   );
 };

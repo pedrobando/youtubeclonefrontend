@@ -20,6 +20,9 @@ const Hero = (props) => {
         <RelatedVideos videos={videos} setVideoId={setVideoId} videoId={videoId}></RelatedVideos>
       </Col>
       <Col xs={6} md={6}>
+        <div className="video-info">
+       
+        </div>
          <Comments comments={props.comments} videoId={videoId} newComment={props.newComment}></Comments>
       </Col>
     </Row>
