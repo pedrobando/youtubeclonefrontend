@@ -4,11 +4,10 @@ import "./RelatedVideos.css";
 
 const RelatedVideos = (props) => {
   const videos = props.videos;
-  const videoId = props.videoId;
   const setVideoId = props.setVideoId;
-  const videosListItems = videos.slice(0,3).map(
+  const videosListItems = props.videos.slice(4).map(
     (video) =>(
-        <div className="related_videos_list_item" key={video._id}>
+        <div className="related_videos_list_item" key={video.id.videoId}>
           <div className="videoThumnail">
             <Button onClick={() => setVideoId(video.id.videoId)}>
               <img

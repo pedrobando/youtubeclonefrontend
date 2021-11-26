@@ -8,8 +8,6 @@ const Comments = (props) => {
     <li key={comment._id}>
       <span className="thumb">&nbsp;</span>
       <p>{comment.text}<br/><span className="likes">{comment.like} | {comment.dislike}</span></p>
-     
-      
       <br className="clear" />
       {/* <ul><li><span className="thumbS">&nbsp;</span></li>
       <li><span className="thumbS">&nbsp;</span></li></ul> */}

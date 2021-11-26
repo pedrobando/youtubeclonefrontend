@@ -1,2 +1,2 @@
 p{color: #9f9f9f;}
-.video-info{min-height: 368px; margin-bottom: 1rem;}
+.video-info{max-height: 368px; margin-bottom: 1rem; overflow-y: scroll;}
