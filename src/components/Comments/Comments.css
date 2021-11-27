@@ -4,5 +4,6 @@
 .comments-list, .comments-list li{list-style-type: none;}
 ul.comments-list>li>p{padding-left: 1rem;float: left;}
 ul.comments-list>li{border-bottom: 1px #262626 solid; margin-bottom: 5px; padding:1rem}
-.likes{color: #727272;}
+.likes{color: #727272; margin-top: 1rem;}
+.likes button{margin-right: 10px;}
 .video-comments{font-size: 1.3rem;}

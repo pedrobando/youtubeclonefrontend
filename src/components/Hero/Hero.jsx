@@ -17,16 +17,16 @@ const Hero = (props) => {
     <Row className="row_hero">
       <Col xs={6} md={6} className="yt_player">
         <YoutubePlayer videoId={videoId}></YoutubePlayer>
-        <RelatedVideos videos={props.videos} setVideoId={setVideoId} videoId={videoId}></RelatedVideos>
+        <RelatedVideos videos={props.videos} setVideoId={props.setVideoId} videoId={videoId}></RelatedVideos>
       </Col>
       <Col xs={6} md={6}>
         <div className="video-info">
-       <h1>{props.video.snippet.title}</h1>
-       <span>{props.video.snippet.channelTitle}</span>
-       <p>{props.video.snippet.description}</p>
+       {/* <h1>{video.snippet.title}</h1>
+       <span>{video.snippet.channelTitle}</span>
+       <p>{video.snippet.description}</p> */}
        
         </div>
-         <Comments comment={props.comment} setComment={props.setComment} comments={props.comments} videoId={videoId} newComment={props.newComment}></Comments>
+         <Comments editComment={props.editComment} comment={props.comment} setComment={props.setComment} comments={props.comments} videoId={videoId} newComment={props.newComment}></Comments>
       </Col>
     </Row>
   );

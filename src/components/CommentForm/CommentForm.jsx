@@ -6,13 +6,15 @@ import axios from "axios";
 const CommentForm = (props) => {
   const comment = props.comment;
   const handleSubmit = event => {
+    console.log(event);
     const commentData = {
       text: comment.text,
       videoid: props.videoId
     }
-    props.newComment(commentData)}
-
-     const handleChange = event =>{
+    props.newComment(commentData)
+    
+    }
+    const handleChange = event =>{
         props.setComment({ text: event.target.value});
       }
   return (
