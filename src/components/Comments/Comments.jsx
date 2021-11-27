@@ -46,11 +46,20 @@ const Comments = (props) => {
           <Button onClick={() => handleDislike(comment)} variant="outline-warning" size="sm">
             <FaThumbsDown /> {comment.dislike}
           </Button>
+            <Button variant="outline-primary" size="sm">
+            Reply
+            </Button>
         </div>
       </p>
       <br className="clear" />
-      {/* <ul><li><span className="thumbS">&nbsp;</span></li>
-      <li><span className="thumbS">&nbsp;</span></li></ul> */}
+      <ul className="repliesList">
+        <li>
+          <span className="thumbS">&nbsp;</span>
+          <div className="replyBody">
+            <p>jbkjjnkjnkjn</p>
+          </div>
+        </li>
+      </ul>
     </li>
   ));
 
