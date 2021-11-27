@@ -13,6 +13,7 @@ const Hero = (props) => {
   const setVideoId = props.setVideoId;
   const videoId = props.videoId;
   const video = props.video;
+
   return (
     <Row className="row_hero">
       <Col xs={6} md={6} className="yt_player">
@@ -26,7 +27,7 @@ const Hero = (props) => {
        <p>{video.snippet.description}</p> */}
        
         </div>
-         <Comments editComment={props.editComment} comment={props.comment} setComment={props.setComment} comments={props.comments} videoId={videoId} newComment={props.newComment}></Comments>
+         <Comments editReply={props.editReply} editComment={props.editComment} comment={props.comment} setComment={props.setComment} comments={props.comments} videoId={videoId} newComment={props.newComment}></Comments>
       </Col>
     </Row>
   );

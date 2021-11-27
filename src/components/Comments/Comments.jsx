@@ -8,7 +8,30 @@ import { Button } from "react-bootstrap/";
 const Comments = (props) => {
   const comments = props.comments;
   const setComment = props.setComments;
+  const editReply = props.editReply;
 
+  const handleReplyLike = (event, commentId) => {
+    editReply(
+      {
+        like: event.like + 1,
+        text: event.text,
+        dislike: event.dislike,
+      },
+      commentId,
+      event._id
+    );
+  };
+  const handleReplyDislike = (event, commentId) => {
+    editReply(
+      {
+        dislike: event.dislike + 1,
+        text: event.text,
+        like: event.like,
+      },
+      commentId,
+      event._id
+    );
+  };
   const handleLike = (event) => {
     props.editComment(
       {
@@ -26,9 +49,10 @@ const Comments = (props) => {
         text: event.text,
         videoid: event.videoid,
       },
-      event._id
+      event._id,
     );
   };
+  
   const commentListItems = comments.map((comment) => (
     <li key={comment._id}>
       <span className="thumb">&nbsp;</span>
@@ -53,12 +77,28 @@ const Comments = (props) => {
       </p>
       <br className="clear" />
       <ul className="repliesList">
+        {comment.replies.map((reply) => (
         <li>
           <span className="thumbS">&nbsp;</span>
           <div className="replyBody">
-            <p>jbkjjnkjnkjn</p>
+            <p>
+              {reply.text}
+            </p>
+            <div className="likes">
+            <Button
+            onClick={() => handleReplyLike(reply, comment._id)}
+            variant="outline-success"
+            size="sm"
+          >
+          <FaThumbsUp /> {reply.like}
+          </Button>
+          <Button onClick={() => handleReplyDislike(reply, comment._id)} variant="outline-warning" size="sm">
+            <FaThumbsDown /> {reply.dislike}
+          </Button>
+          </div>
           </div>
         </li>
+            ))}
       </ul>
     </li>
   ));

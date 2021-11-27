@@ -16,7 +16,9 @@ const App = () => {
 
   const getAllVideos = async () => {
     await axios
-      .get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=${apikey}&maxResults=4&part=snippet&channelId=UC29ju8bIPH5as8OGnQzwJyA&fields=items(id,snippet(title, description, channelTitle, thumbnails(default(url))))`)
+      .get(
+        `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=${apikey}&maxResults=4&part=snippet&channelId=UC29ju8bIPH5as8OGnQzwJyA&fields=items(id,snippet(title, description, channelTitle, thumbnails(default(url))))`
+      )
       .then((res) => {
         setVideos(res.data.items);
       })
@@ -27,7 +29,9 @@ const App = () => {
 
   const getVideo = async () => {
     await axios
-      .get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apikey}&fields=items(id,snippet(title, description, channelTitle,thumbnails(default(url))),statistics(viewCount, likeCount, dislikeCount))&part=snippet,statistics`)
+      .get(
+        `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apikey}&fields=items(id,snippet(title, description, channelTitle,thumbnails(default(url))),statistics(viewCount, likeCount, dislikeCount))&part=snippet,statistics`
+      )
       .then((res) => {
         setVideo(res.data.items[0]);
       })
@@ -46,31 +50,42 @@ const App = () => {
   };
 
   const newComment = async (comment) => {
-    
     await axios
       .post(`http://localhost:5500/api/comments/`, comment)
       .then((res) => {
         setComments(comment);
       });
-      getAllComments();
-      
+    getAllComments();
   };
 
   const editComment = async (comment, commentId) => {
     await axios
       .put(`http://localhost:5500/api/comments/${commentId}`, comment)
+      .then(() => {})
+      .catch(function (error) {
+        console.log(error);
+      });
+    getAllComments();
+  };
+
+  const editReply = async (reply, commentId, replyId) => {
+    await axios
+      .put(
+        `http://localhost:5500/api/comments/${commentId}/replies/${replyId}`,
+        reply
+      )
       .then(() => {
-        
+        console.log(reply);
+        getAllComments();
       })
       .catch(function (error) {
         console.log(error);
       });
-      getAllComments();
-      
+    
   };
 
   useEffect(() => {
-    console.log('Effects is running');
+    console.log("Effects is running");
     getVideo();
     getAllVideos();
     getAllComments();
@@ -89,6 +104,7 @@ const App = () => {
         comment={comment}
         setComment={setComment}
         editComment={editComment}
+        editReply={editReply}
       ></Hero>
     </Container>
   );

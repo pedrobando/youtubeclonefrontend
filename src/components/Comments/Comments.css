@@ -5,7 +5,7 @@
 .replyBody{margin-left:1.9rem;}
 ul.comments-list>li>p{padding-left: 1rem;float: left;}
 .repliesList{margin-top: 1rem;}
-.repliesList li{background-color: #3c3c3c66; padding:1rem;}
+.repliesList li{background-color: #3c3c3c66; padding:1rem; margin-bottom: 3px; list-style-type: none;}
 .repliesList li p{margin: 0;}
 ul.comments-list>li{border-bottom: 1px #262626 solid; margin-bottom: 5px; padding:1rem}
 .likes{color: #727272; margin-top: 1rem;}
