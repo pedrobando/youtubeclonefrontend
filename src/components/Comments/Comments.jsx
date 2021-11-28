@@ -1,15 +1,31 @@
-import React from "react";
+import {React, useState} from "react";
 import { ExclamationTriangleFill } from "react-bootstrap-icons";
 import CommentForm from "../CommentForm/CommentForm";
 import "./Comments.css";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
-import { Button } from "react-bootstrap/";
+import { Button, Alert, Collapse } from "react-bootstrap/";
 
 const Comments = (props) => {
   const comments = props.comments;
   const setComment = props.setComments;
   const editReply = props.editReply;
+  const [show, setShow] = useState(true);
 
+  const replyForm = () => {
+    if (show) {
+      return (
+        <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+          <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+          <p>
+            Change this and that and try again. Duis mollis, est non commodo
+            luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+            Cras mattis consectetur purus sit amet fermentum.
+          </p>
+        </Alert>
+      );
+    }
+    return <Button onClick={() => setShow(true)}>Show Alert</Button>;
+  }
   const handleReplyLike = (event, commentId) => {
     editReply(
       {
@@ -70,9 +86,10 @@ const Comments = (props) => {
           <Button onClick={() => handleDislike(comment)} variant="outline-warning" size="sm">
             <FaThumbsDown /> {comment.dislike}
           </Button>
-            <Button variant="outline-primary" size="sm">
+            <Button onClick={() => setShow(true)} variant="outline-primary" size="sm">
             Reply
             </Button>
+            {replyForm}
         </div>
       </p>
       <br className="clear" />

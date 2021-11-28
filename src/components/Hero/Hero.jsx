@@ -1,5 +1,5 @@
 import "./Hero.css";
-import React, { useState, useEffect, setState } from "react";
+import React from "react";
 import {
   Row,
   Col,
@@ -22,9 +22,9 @@ const Hero = (props) => {
       </Col>
       <Col xs={6} md={6}>
         <div className="video-info">
-       {/* <h1>{video.snippet.title}</h1>
+       <h1>{video.snippet.title}</h1>
        <span>{video.snippet.channelTitle}</span>
-       <p>{video.snippet.description}</p> */}
+       <p>{video.snippet.description}</p>
        
         </div>
          <Comments editReply={props.editReply} editComment={props.editComment} comment={props.comment} setComment={props.setComment} comments={props.comments} videoId={videoId} newComment={props.newComment}></Comments>

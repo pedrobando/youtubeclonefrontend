@@ -13,6 +13,8 @@ const App = () => {
   const [videos, setVideos] = useState([]);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState({});
+  
+ 
 
   const getAllVideos = async () => {
     await axios
@@ -38,6 +40,7 @@ const App = () => {
       .catch(function (error) {
         console.log(error.message);
       });
+      getAllVideos();
   };
 
   // Comments
@@ -87,7 +90,6 @@ const App = () => {
   useEffect(() => {
     console.log("Effects is running");
     getVideo();
-    getAllVideos();
     getAllComments();
   }, [videoId]);
 
