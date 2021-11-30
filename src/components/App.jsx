@@ -9,7 +9,7 @@ import RelatedVideos from "./RelatedVideos/RelatedVideos";
 
 const App = () => {
   const [videoId, setVideoId] = useState("w7ejDZ8SWv8");
-  const [video, setVideo] = useState([]);
+  const [video, setVideo] = useState(null);
   const [videos, setVideos] = useState([]);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState({});
@@ -56,9 +56,8 @@ const App = () => {
     await axios
       .post(`http://localhost:5500/api/comments/`, comment)
       .then((res) => {
-        setComments(comment);
+        getAllComments()
       });
-    getAllComments();
   };
 
   const editComment = async (comment, commentId) => {
@@ -107,6 +106,7 @@ const App = () => {
         setComment={setComment}
         editComment={editComment}
         editReply={editReply}
+        getAllComments={getAllComments}
       ></Hero>
     </Container>
   );

@@ -94,8 +94,8 @@ const Comments = (props) => {
       </p>
       <br className="clear" />
       <ul className="repliesList">
-        {comment.replies.map((reply) => (
-        <li>
+        {comment.replies.map((reply, index) => (
+        <li key={index}>
           <span className="thumbS">&nbsp;</span>
           <div className="replyBody">
             <p>
@@ -118,6 +118,7 @@ const Comments = (props) => {
             ))}
       </ul>
     </li>
+    
   ));
 
   return (
@@ -129,6 +130,7 @@ const Comments = (props) => {
         comment={props.comment}
         videoId={props.videoId}
         newComment={props.newComment}
+        getAllComments={props.getAllComments}
       ></CommentForm>
     </div>
   );
